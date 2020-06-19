@@ -1,5 +1,0 @@
-numpy
-Pillow
-tensorflow==1.15.0
-tabulate
-tqdm
