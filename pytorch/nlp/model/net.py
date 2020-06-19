@@ -80,6 +80,7 @@ class Net(nn.Module):
         # apply the fully connected layer and obtain the output (before softmax) for each token
         s = self.fc(s)                   # dim: batch_size*seq_len x num_tags
         s = self.fc2(s)
+        s = self.fc3(s)
 
         # apply log softmax on each token's output (this is recommended over applying softmax
         # since it is numerically more stable)
