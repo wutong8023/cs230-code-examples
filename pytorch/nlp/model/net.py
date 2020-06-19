@@ -43,6 +43,7 @@ class Net(nn.Module):
 
         # the fully connected layer transforms the output to give the final output layer
         self.fc = nn.Linear(params.lstm_hidden_dim, params.number_of_tags)
+        self.fc2 = nn.Linear(params.number_of_tags, params.number_of_tags)
 
     def forward(self, s):
         """
@@ -78,6 +79,7 @@ class Net(nn.Module):
 
         # apply the fully connected layer and obtain the output (before softmax) for each token
         s = self.fc(s)                   # dim: batch_size*seq_len x num_tags
+        s = self.fc2(s)
 
         # apply log softmax on each token's output (this is recommended over applying softmax
         # since it is numerically more stable)
